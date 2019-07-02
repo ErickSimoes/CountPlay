@@ -21,6 +21,7 @@
 <script>
 var video = document.getElementById("bgvideo");
 var btn = document.getElementById("btn-video");
+var time = 0;
 
 function videoPlayPause() {
 	if (video.paused) {
@@ -30,6 +31,10 @@ function videoPlayPause() {
 		video.pause();
 		btn.innerHTML = "Play Vídeo";
 	}
+}
+
+function defineTime() {
+	time = prompt("Defina o tempo da contagem regressiva:");
 }
 </script>
 
