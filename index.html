@@ -12,16 +12,16 @@
 	</video>
 
 	<div class="content">
-		<h1>Tempo Restante: XX:XX</h1>
+		<h1>Tempo Restante: <span id="time">XX:XX</span></h1>
 		<button id="btn-video" class="btn" onclick="videoPlayPause()">Pausar Vídeo</button>
 		<button id="btn-time" class="btn" onclick="defineTime()">Definir Tempo</button>
-		<button id="btn-cont" class="btn" onclick="">Iniciar Contagem</button>
+		<button id="btn-count" class="btn" onclick="startCount()">Iniciar Contagem</button>
 	</div>
 
 <script>
 var video = document.getElementById("bgvideo");
 var btn = document.getElementById("btn-video");
-var time = 0;
+var time, display;
 
 function videoPlayPause() {
 	if (video.paused) {
@@ -34,8 +34,40 @@ function videoPlayPause() {
 }
 
 function defineTime() {
-	time = prompt("Defina o tempo da contagem regressiva:");
+	time = prompt("Defina o tempo da contagem regressiva em minutos:");
+	display = document.getElementById("time");
+	setTimeInDisplay(time, display);
 }
+
+function startCount() {
+	startTimer(time, display);
+}
+
+function startTimer(duration, display) {
+	var timer = duration, minutes, seconds;
+	var intervalID = setInterval(function () {
+		minutes = parseInt(timer / 60, 10);
+		seconds = parseInt(timer % 60, 10);
+
+		minutes = minutes < 10 ? "0" + minutes : minutes;
+		seconds = seconds < 10 ? "0" + seconds : seconds;
+
+		display.textContent = minutes + ":" + seconds;
+
+		if (--timer < 0) {
+			timer = duration;
+			videoPlayPause();
+			clearInterval(intervalID);
+		}
+	}, 1000);
+}
+
+function setTimeInDisplay(timer, display) {
+	minutes = parseInt(timer / 60, 10)
+	seconds = parseInt(timer % 60, 10);
+	display.textContent = minutes + ":" + seconds;
+}
+
 </script>
 
 </body>
