@@ -2,11 +2,32 @@
 <html lang="pt-br">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CountPlay</title>
 </head>
 <body>
-	<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+	<video id="bgvideo" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
 		<source src="mp4/placeholder.mp4" type="video/mp4">
 	</video>
+
+	<div class="content">
+		<button id="btn" onclick="videoPlayPause()">Pause</button>
+	</div>
+
+<script>
+var video = document.getElementById("bgvideo");
+var btn = document.getElementById("btn");
+
+function videoPlayPause() {
+	if (video.paused) {
+		video.play();
+		btn.innerHTML = "Pause";
+	} else {
+		video.pause();
+		btn.innerHTML = "Play";
+	}
+}
+</script>
+
 </body>
 </html>
