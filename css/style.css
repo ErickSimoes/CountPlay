@@ -25,7 +25,7 @@ body {
 	padding: 20px;
 }
 
-#btn {
+.btn {
 	width: 200px;
 	font-size: 18px;
 	padding: 10px;
@@ -35,7 +35,7 @@ body {
 	cursor: pointer;
 }
 
-#btn:hover {
+.btn:hover {
 	background: #888;
 	color: black;
 }

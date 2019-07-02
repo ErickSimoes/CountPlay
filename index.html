@@ -13,12 +13,12 @@
 
 	<div class="content">
 		<h1>Tempo Restante: XX:XX</h1>
-		<button id="btn" onclick="videoPlayPause()">Pausar Vídeo</button>
+		<button id="btn-video" class="btn" onclick="videoPlayPause()">Pausar Vídeo</button>
 	</div>
 
 <script>
 var video = document.getElementById("bgvideo");
-var btn = document.getElementById("btn");
+var btn = document.getElementById("btn-video");
 
 function videoPlayPause() {
 	if (video.paused) {
